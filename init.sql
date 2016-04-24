@@ -38,7 +38,7 @@ CREATE TABLE Imovel (
 	idPais INTEGER NOT NULL REFERENCES Pais(id),
 	idImovel INTEGER NOT NULL REFERENCES TipoImovel(id),
 	codigoPostal INTEGER NOT NULL REFERENCES CodigoPostal(codigo),
-	idCondominio INTEGER NOT NULL REFERENCES Condominio(id)
+	idCondominio INTEGER REFERENCES Condominio(id)
 );
 
 CREATE TABLE Cliente (
@@ -57,7 +57,7 @@ CREATE TABLE Pagamento (
 	comissao REAL NOT NULL,
 	dataDevida TEXT NOT NULL,
 	dataPagamento TEXT NOT NULL,
-	pagamento REAL NOT NULL,
+	montante REAL NOT NULL,
 	vendaOuArrendamento INTEGER NOT NULL,
 	destinatarioId INTEGER NOT NULL REFERENCES Cliente(id),
 	remetenteId INTEGER NOT NULL REFERENCES Cliente(id),
@@ -110,16 +110,16 @@ CREATE TABLE Ginasio (
 	area REAL NOT NULL,
 	balneario INTEGER NOT NULL,
 	nMaquinas INTEGER NOT NULL,
-	idImovel INTEGER NOT NULL REFERENCES Imovel(id),
-	idCondominio INTEGER NOT NULL REFERENCES Condominio(id)
+	idImovel INTEGER REFERENCES Imovel(id),
+	idCondominio INTEGER REFERENCES Condominio(id)
 );
 
 CREATE TABLE Spa (
 	id INTEGER PRIMARY KEY,
 	balneario INTEGER NOT NULL,
 	lotacao INTEGER NOT NULL,
-	idImovel INTEGER NOT NULL REFERENCES Imovel(id),
-	idCondominio INTEGER NOT NULL REFERENCES Condominio(id)
+	idImovel INTEGER REFERENCES Imovel(id),
+	idCondominio INTEGER REFERENCES Condominio(id)
 );
 
 CREATE TABLE SalaEventos (
@@ -134,15 +134,15 @@ CREATE TABLE CourtTenis (
 	id INTEGER PRIMARY KEY,
 	balneario INTEGER NOT NULL,
 	nCampos INTEGER NOT NULL,
-	idImovel INTEGER NOT NULL REFERENCES Imovel(id),
-	idCondominio INTEGER NOT NULL REFERENCES Condominio(id)
+	idImovel INTEGER REFERENCES Imovel(id),
+	idCondominio INTEGER REFERENCES Condominio(id)
 );
 
 CREATE TABLE Garagem (
 	id INTEGER PRIMARY KEY,
 	area REAL NOT NULL,
 	lugaresEstacionamento INTEGER NOT NULL,
-	idImovel INTEGER NOT NULL REFERENCES Imovel(id),
-	idCondominio INTEGER NOT NULL REFERENCES Condominio(id)
+	idImovel INTEGER REFERENCES Imovel(id),
+	idCondominio INTEGER REFERENCES Condominio(id)
 );
 
