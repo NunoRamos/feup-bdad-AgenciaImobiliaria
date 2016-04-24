@@ -3,6 +3,24 @@
 .nullvalue NULL
 PRAGMA FOREIGN_KEYS=ON;
 
+DROP TABLE IF EXISTS TipoImovel;
+DROP TABLE IF EXISTS Imovel;
+DROP TABLE IF EXISTS Cliente;
+DROP TABLE IF EXISTS Pagamento;
+DROP TABLE IF EXISTS Foto;
+DROP TABLE IF EXISTS Pais;
+DROP TABLE IF EXISTS CodigoPostal;
+DROP TABLE IF EXISTS Freguesia;
+DROP TABLE IF EXISTS Concelho;
+DROP TABLE IF EXISTS Distrito;
+DROP TABLE IF EXISTS Condominio;
+DROP TABLE IF EXISTS Ginasio;
+DROP TABLE IF EXISTS Spa;
+DROP TABLE IF EXISTS SalaEventos;
+DROP TABLE IF EXISTS CourtTenis;
+DROP TABLE IF EXISTS Garagem;
+DROP TABLE IF EXISTS Piscina;
+
 CREATE TABLE TipoImovel (
 	id INTEGER PRIMARY KEY,
 	tipo TEXT NOT NULL
@@ -17,10 +35,10 @@ CREATE TABLE Imovel (
 	morada TEXT NOT NULL,
 	numAndares INTEGER NOT NULL,
 	numQuartos INTEGER NOT NULL,
-	idPais INTEGER REFERENCES Pais(id),
-	idImovel INTEGER REFERENCES TipoImovel(id),
-	codigoPostal INTEGER REFERENCES CodigoPostal(codigo),
-	idCondominio INTEGER REFERENCES Condominio(id)
+	idPais INTEGER NOT NULL REFERENCES Pais(id),
+	idImovel INTEGER NOT NULL REFERENCES TipoImovel(id),
+	codigoPostal INTEGER NOT NULL REFERENCES CodigoPostal(codigo),
+	idCondominio INTEGER NOT NULL REFERENCES Condominio(id)
 );
 
 CREATE TABLE Cliente (
@@ -31,7 +49,7 @@ CREATE TABLE Cliente (
 	nome TEXT NOT NULL,
 	nTelemovel INTEGER NOT NULL,
 	titulo TEXT,
-	idPais INTEGER REFERENCES Pais(id)
+	idPais INTEGER NOT NULL REFERENCES Pais(id)
 );
 
 CREATE TABLE Pagamento (
@@ -41,9 +59,9 @@ CREATE TABLE Pagamento (
 	dataPagamento TEXT NOT NULL,
 	pagamento REAL NOT NULL,
 	vendaOuArrendamento INTEGER NOT NULL,
-	destinatarioId INTEGER REFERENCES Cliente(id),
-	remetenteId INTEGER REFERENCES Cliente(id),
-	imovelId INTEGER REFERENCES Imovel(id)
+	destinatarioId INTEGER NOT NULL REFERENCES Cliente(id),
+	remetenteId INTEGER NOT NULL REFERENCES Cliente(id),
+	imovelId INTEGER NOT NULL REFERENCES Imovel(id)
 );
 
 CREATE TABLE Foto (
@@ -52,7 +70,7 @@ CREATE TABLE Foto (
 	altura INTEGER NOT NULL,
 	largura INTEGER NOT NULL,
 	descricao TEXT,
-	idImovel REFERENCES Imovel(id)
+	idImovel NOT NULL REFERENCES Imovel(id)
 );
 
 CREATE TABLE Pais (
@@ -61,20 +79,25 @@ CREATE TABLE Pais (
 );
 
 CREATE TABLE CodigoPostal (
-	codigo INTEGER PRIMARY KEY,
-	idFreguesia INTEGER REFERENCES Freguesia(id)
+	codigo INTEGER NOT NULL PRIMARY KEY,
+	idFreguesia INTEGER NOT NULL REFERENCES Freguesia(id)
 );
 
 CREATE TABLE Freguesia (
 	id INTEGER PRIMARY KEY,
 	nome TEXT NOT NULL,
-	idConcelho INTEGER REFERENCES Concelho(id)
+	idConcelho INTEGER NOT NULL REFERENCES Concelho(id)
 );
 
 CREATE TABLE Concelho (
 	id INTEGER PRIMARY KEY,
 	nome TEXT NOT NULL,
-	idDistrito INTEGER REFERENCES Distrito(id)
+	idDistrito INTEGER NOT NULL REFERENCES Distrito(id)
+);
+
+CREATE TABLE Distrito (
+	id INTEGER NOT NULL PRIMARY KEY,
+	nome TEXT NOT NULL
 );
 
 CREATE TABLE Condominio (
@@ -87,16 +110,16 @@ CREATE TABLE Ginasio (
 	area REAL NOT NULL,
 	balneario INTEGER NOT NULL,
 	nMaquinas INTEGER NOT NULL,
-	idImovel INTEGER REFERENCES Imovel(id),
-	idCondominio INTEGER REFERENCES Condominio(id)
+	idImovel INTEGER NOT NULL REFERENCES Imovel(id),
+	idCondominio INTEGER NOT NULL REFERENCES Condominio(id)
 );
 
 CREATE TABLE Spa (
 	id INTEGER PRIMARY KEY,
 	balneario INTEGER NOT NULL,
 	lotacao INTEGER NOT NULL,
-	idImovel INTEGER REFERENCES Imovel(id),
-	idCondominio INTEGER REFERENCES Condominio(id)
+	idImovel INTEGER NOT NULL REFERENCES Imovel(id),
+	idCondominio INTEGER NOT NULL REFERENCES Condominio(id)
 );
 
 CREATE TABLE SalaEventos (
@@ -111,15 +134,15 @@ CREATE TABLE CourtTenis (
 	id INTEGER PRIMARY KEY,
 	balneario INTEGER NOT NULL,
 	nCampos INTEGER NOT NULL,
-	idImovel INTEGER REFERENCES Imovel(id),
-	idCondominio INTEGER REFERENCES Condominio(id)
+	idImovel INTEGER NOT NULL REFERENCES Imovel(id),
+	idCondominio INTEGER NOT NULL REFERENCES Condominio(id)
 );
 
 CREATE TABLE Garagem (
 	id INTEGER PRIMARY KEY,
 	area REAL NOT NULL,
 	lugaresEstacionamento INTEGER NOT NULL,
-	idImovel INTEGER REFERENCES Imovel(id),
-	idCondominio INTEGER REFERENCES Condominio(id)
+	idImovel INTEGER NOT NULL REFERENCES Imovel(id),
+	idCondominio INTEGER NOT NULL REFERENCES Condominio(id)
 );
 

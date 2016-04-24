@@ -1,3 +1,4 @@
+-- PAISES
 INSERT INTO Pais VALUES(NULL, "Portugal");
 INSERT INTO Pais VALUES(NULL, "Espanha");
 INSERT INTO Pais VALUES(NULL, "Itália");
@@ -5,4 +6,27 @@ INSERT INTO Pais VALUES(NULL, "França");
 INSERT INTO Pais VALUES(NULL, "Alemanha");
 INSERT INTO Pais VALUES(NULL, "Brasil");
 INSERT INTO Pais VALUES(NULL, "Estados Unidos da América");
+
+-- DISTRITOS
+INSERT INTO Distrito VALUES (NULL, "Porto");
+INSERT INTO Distrito VALUES (NULL, "Lisboa");
+
+-- CONCELHOS
+INSERT INTO Concelho VALUES (NULL, "Porto", 1);
+INSERT INTO Concelho VALUES (NULL, "Maia", 1);
+
+-- FREGUESIAS
+INSERT INTO Freguesia VALUES (NULL, "Paranhos", 1);
+INSERT INTO Freguesia VALUES (NULL, "Massarelos", 1);
+INSERT INTO Freguesia VALUES (NULL, "Vermoim", 2);
+INSERT INTO Freguesia VALUES (NULL, "Pedrouços", 2);
+INSERT INTO Freguesia VALUES (NULL, "Maia", 2);
+
+-- CODIGOS POSTAIS
+INSERT INTO CodigoPostal VALUES (4470590, 5);
+INSERT INTO CodigoPostal VALUES (4425701, 4);
+
+-- IMOVEIS
+
+-- CLIENTES
 
