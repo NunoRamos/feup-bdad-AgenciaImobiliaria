@@ -113,7 +113,7 @@ INSERT INTO Condominio VALUES (NULL, "Quinta do Patino");
 
 
 -- IMOVEL
-INSERT INTO Imovel VALUES (NULL, 2001, 150, "Habitação para famílias grandes com ótima localização", "B", "Rua das Flores", 1, 4, 1, 10, 4, NULL);
+INSERT INTO Imovel VALUES (NULL, 2001, 150.0, "Habitação para famílias grandes com ótima localização", "B", "Rua das Flores", 1, 4, 1, 10, 4, NULL);
 INSERT INTO Imovel VALUES (NULL, 2005, 200, "Habitação ampla ao pá da praia", "A", "Travessa Fernando Namora", 2, 3, 1, 7, 2, 1);
 INSERT INTO Imovel VALUES (NULL, 2010, 175, "Habitação numa zona de excelência", "B", "Praceta Elisa Monteiro", 1, 2, 1, 10, 5, 2);
 INSERT INTO Imovel VALUES (NULL, 2012, 750, "Habitação restaurada que remonta aon século XIX", "C", "Paseo de La Castellana", 3, 6, 2, 7, 7, NULL);

@@ -6,7 +6,7 @@ PRAGMA FOREIGN_KEYS=ON;
 DROP TABLE IF EXISTS TipoImovel;
 DROP TABLE IF EXISTS Imovel;
 DROP TABLE IF EXISTS Cliente;
-DROP TABLE IF EXISTS Montante;
+DROP TABLE IF EXISTS Pagamento;
 DROP TABLE IF EXISTS Foto;
 DROP TABLE IF EXISTS Pais;
 DROP TABLE IF EXISTS CodigoPostal;
@@ -26,19 +26,15 @@ CREATE TABLE TipoImovel (
 	tipo TEXT NOT NULL
 );
 
-CREATE TABLE Imovel (
+CREATE TABLE Condominio (
 	id INTEGER PRIMARY KEY,
-	anoConstrucao INTEGER NOT NULL,
-	areaTotal REAL NOT NULL,
-	descricao TEXT,
-	eficienciaEnergetica TEXT NOT NULL,
-	morada TEXT NOT NULL,
-	numAndares INTEGER NOT NULL,
-	numQuartos INTEGER NOT NULL,
-	idPais INTEGER NOT NULL REFERENCES Pais(id),
-	idImovel INTEGER NOT NULL REFERENCES TipoImovel(id),
-	codigoPostal INTEGER NOT NULL REFERENCES CodigoPostal(codigo),
-	idCondominio INTEGER REFERENCES Condominio(id)
+	nome TEXT NOT NULL
+);
+
+
+CREATE TABLE Pais (
+	id INTEGER PRIMARY KEY,
+	nome TEXT NOT NULL
 );
 
 CREATE TABLE Cliente (
@@ -64,20 +60,6 @@ CREATE TABLE Pagamento (
 	imovelId INTEGER NOT NULL REFERENCES Imovel(id)
 );
 
-CREATE TABLE Foto (
-	idFoto INTEGER PRIMARY KEY,
-	nomeFicheiro TEXT NOT NULL,
-	altura INTEGER NOT NULL,
-	largura INTEGER NOT NULL,
-	descricao TEXT,
-	idImovel NOT NULL REFERENCES Imovel(id)
-);
-
-CREATE TABLE Pais (
-	id INTEGER PRIMARY KEY,
-	nome TEXT NOT NULL
-);
-
 CREATE TABLE CodigoPostal (
 	codigo INTEGER NOT NULL PRIMARY KEY,
 	idFreguesia INTEGER NOT NULL REFERENCES Freguesia(id)
@@ -100,9 +82,28 @@ CREATE TABLE Distrito (
 	nome TEXT NOT NULL
 );
 
-CREATE TABLE Condominio (
+CREATE TABLE Imovel (
 	id INTEGER PRIMARY KEY,
-	nome TEXT NOT NULL
+	anoConstrucao INTEGER NOT NULL,
+	areaTotal REAL NOT NULL,
+	descricao TEXT,
+	eficienciaEnergetica TEXT NOT NULL,
+	morada TEXT NOT NULL,
+	numAndares INTEGER NOT NULL,
+	numQuartos INTEGER NOT NULL,
+	idPais INTEGER NOT NULL REFERENCES Pais(id),
+	idImovel INTEGER NOT NULL REFERENCES TipoImovel(id),
+	codigoPostal INTEGER NOT NULL REFERENCES CodigoPostal(codigo),
+	idCondominio INTEGER REFERENCES Condominio(id)
+);
+
+CREATE TABLE Foto (
+	idFoto INTEGER PRIMARY KEY,
+	nomeFicheiro TEXT NOT NULL,
+	altura INTEGER NOT NULL,
+	largura INTEGER NOT NULL,
+	descricao TEXT,
+	idImovel NOT NULL REFERENCES Imovel(id)
 );
 
 CREATE TABLE Ginasio (
