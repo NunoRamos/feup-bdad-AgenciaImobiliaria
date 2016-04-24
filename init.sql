@@ -146,3 +146,13 @@ CREATE TABLE Garagem (
 	idCondominio INTEGER REFERENCES Condominio(id)
 );
 
+CREATE TABLE Piscina (
+	id INTEGER PRIMARY KEY,
+	balneario INTEGER NOT NULL,
+	comprimento REAL NOT NULL,
+	largura REAL NOT NULL,
+	profundidade REAL NOT NULL,
+	idImovel INTEGER REFERENCES Imovel(id),
+	idCondominio INTEGER REFERENCES Condominio(id)
+);
+
