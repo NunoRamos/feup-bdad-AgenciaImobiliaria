@@ -52,7 +52,7 @@ CREATE TABLE Cliente (
 	idPais INTEGER NOT NULL REFERENCES Pais(id)
 );
 
-CREATE TABLE Montante (
+CREATE TABLE Pagamento (
 	id INTEGER PRIMARY KEY,
 	comissao REAL NOT NULL,
 	dataDevida TEXT NOT NULL,
