@@ -111,15 +111,6 @@ INSERT INTO Condominio VALUES (NULL, "Quinta do Lago");
 INSERT INTO Condominio VALUES (NULL, "Tagus Park");
 INSERT INTO Condominio VALUES (NULL, "Quinta do Patino");
 
-
--- IMOVEL
-INSERT INTO Imovel VALUES (NULL, 2001, 150, "Habitação para famílias grandes com ótima localização", "B", "Rua das Flores", 1, 4, 1, 10, 4, NULL);
-INSERT INTO Imovel VALUES (NULL, 2005, 200, "Habitação ampla ao pá da praia", "A", "Travessa Fernando Namora", 2, 3, 1, 7, 2, 1);
-INSERT INTO Imovel VALUES (NULL, 2010, 175, "Habitação numa zona de excelência", "B", "Praceta Elisa Monteiro", 1, 2, 1, 10, 5, 2);
-INSERT INTO Imovel VALUES (NULL, 2012, 750, "Habitação restaurada que remonta aon século XIX", "C", "Paseo de La Castellana", 3, 6, 2, 7, 7, NULL);
-INSERT INTO Imovel VALUES (NULL, 2015, 250, "Habitação decorada com as últimas tendências e as mais modernas tecnologias", "B", "Rua de Moçambique", 1, 3, 1, 1, 10, 3);
-
-
 -- CLIENTES
 INSERT INTO Cliente VALUES (NULL, 14499929, "26/06/1996", "margaridaviterbo@hotmail.com", "Margarida Viterbo", 914722364, "Sra", 1);
 INSERT INTO Cliente VALUES (NULL, 17725512, "13/02/1969", "joaosousa@gmail.com", "João Sousa", 932857389, "Sr.", 1);
@@ -127,6 +118,12 @@ INSERT INTO Cliente VALUES (NULL, 14690432, "25/03/1996", "bbelchior@gmail.com",
 INSERT INTO Cliente VALUES (NULL, 13874629, "04/04/1996", "nunoramos@hotmail.com", "Nuno Ramos", 912847365, "Sr.", 1);
 INSERT INTO Cliente VALUES (NULL, 15839430, "18/05/1955", "mariafonseca@gmail.com", "Maria Fonseca", 914736854, "Sra.", 1);
 
+-- IMOVEL
+INSERT INTO Imovel VALUES (NULL, 2001, 150, "Habitação para famílias grandes com ótima localização", "B", "Rua das Flores", 1, 4, 1, 1, 10, 4, NULL);
+INSERT INTO Imovel VALUES (NULL, 2005, 200, "Habitação ampla ao pá da praia", "A", "Travessa Fernando Namora", 2, 3, 2, 1, 7, 2, 1);
+INSERT INTO Imovel VALUES (NULL, 2010, 175, "Habitação numa zona de excelência", "B", "Praceta Elisa Monteiro", 1, 2, 3, 1, 10, 5, 2);
+INSERT INTO Imovel VALUES (NULL, 2012, 750, "Habitação restaurada que remonta aon século XIX", "C", "Paseo de La Castellana", 3, 6, 3, 2, 7, 7, NULL);
+INSERT INTO Imovel VALUES (NULL, 2015, 250, "Habitação decorada com as últimas tendências e as mais modernas tecnologias", "B", "Rua de Moçambique", 1, 3, 4, 1, 1, 10, 3);
 
 --PAGAMENTO
 INSERT INTO Pagamento VALUES (NULL, 0.10, "06/07/2016", "08/08/2016", 250000, 0, 1, 2, 1);
@@ -172,9 +169,11 @@ INSERT INTO CourtTenis VALUES (NULL, 0, 1, 1, NULL);
 
 
 --GARAGEM
-INSERT INTO Garagem VALUES (NULL, 500, 50, 1, NULL);
-INSERT INTO Garagem VALUES (NULL, 10, 1, 4, NULL);
-INSERT INTO Garagem VALUES (NULL, 30, 2, NULL, 1);
+INSERT INTO Garagem VALUES (NULL, 500, 50, NULL);
+INSERT INTO ImovelGaragem VALUES (1, 1);
+INSERT INTO Garagem VALUES (NULL, 10, 1, NULL);
+INSERT INTO ImovelGaragem VALUES (2, 2);
+INSERT INTO Garagem VALUES (NULL, 30, 2, 1);
 
 
 --PISCINA

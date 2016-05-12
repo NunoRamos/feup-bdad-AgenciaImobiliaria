@@ -6,20 +6,21 @@ PRAGMA FOREIGN_KEYS=ON;
 DROP TABLE IF EXISTS TipoImovel;
 DROP TABLE IF EXISTS Imovel;
 DROP TABLE IF EXISTS Cliente;
-DROP TABLE IF EXISTS Montante;
+DROP TABLE IF EXISTS Pagamento;
 DROP TABLE IF EXISTS Foto;
 DROP TABLE IF EXISTS Pais;
 DROP TABLE IF EXISTS CodigoPostal;
 DROP TABLE IF EXISTS Freguesia;
 DROP TABLE IF EXISTS Concelho;
 DROP TABLE IF EXISTS Distrito;
-DROP TABLE IF EXISTS Condominio;
 DROP TABLE IF EXISTS Ginasio;
 DROP TABLE IF EXISTS Spa;
 DROP TABLE IF EXISTS SalaEventos;
 DROP TABLE IF EXISTS CourtTenis;
 DROP TABLE IF EXISTS Garagem;
 DROP TABLE IF EXISTS Piscina;
+DROP TABLE IF EXISTS ImovelGaragem;
+DROP TABLE IF EXISTS Condominio;
 
 CREATE TABLE TipoImovel (
 	id INTEGER PRIMARY KEY,
@@ -35,8 +36,9 @@ CREATE TABLE Imovel (
 	morada TEXT NOT NULL,
 	numAndares INTEGER NOT NULL,
 	numQuartos INTEGER NOT NULL,
+	idCliente INTEGER NOT NULL REFERENCES Cliente(id),
 	idPais INTEGER NOT NULL REFERENCES Pais(id),
-	idImovel INTEGER NOT NULL REFERENCES TipoImovel(id),
+	idTipoImovel INTEGER NOT NULL REFERENCES TipoImovel(id),
 	codigoPostal INTEGER NOT NULL REFERENCES CodigoPostal(codigo),
 	idCondominio INTEGER REFERENCES Condominio(id)
 );
@@ -52,7 +54,7 @@ CREATE TABLE Cliente (
 	idPais INTEGER NOT NULL REFERENCES Pais(id)
 );
 
-CREATE TABLE Montante (
+CREATE TABLE Pagamento (
 	id INTEGER PRIMARY KEY,
 	comissao REAL NOT NULL,
 	dataDevida TEXT NOT NULL,
@@ -142,7 +144,6 @@ CREATE TABLE Garagem (
 	id INTEGER PRIMARY KEY,
 	area REAL NOT NULL,
 	lugaresEstacionamento INTEGER NOT NULL,
-	idImovel INTEGER REFERENCES Imovel(id),
 	idCondominio INTEGER REFERENCES Condominio(id)
 );
 
@@ -156,3 +157,7 @@ CREATE TABLE Piscina (
 	idCondominio INTEGER REFERENCES Condominio(id)
 );
 
+CREATE TABLE ImovelGaragem (
+	idGaragem INTEGER REFERENCES Garagem(id),
+	idImovel INTEGER REFERENCES Imovel(id)
+);
