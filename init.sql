@@ -34,6 +34,33 @@ CREATE TABLE Condominio (
 	nome TEXT NOT NULL UNIQUE
 );
 
+CREATE TABLE Pais (
+	id INTEGER PRIMARY KEY,
+	nome TEXT NOT NULL
+);
+
+CREATE TABLE Distrito (
+	id INTEGER NOT NULL PRIMARY KEY,
+	nome TEXT NOT NULL
+);
+
+CREATE TABLE Concelho (
+	id INTEGER PRIMARY KEY,
+	nome TEXT NOT NULL,
+	idDistrito INTEGER NOT NULL REFERENCES Distrito(id)
+);
+
+CREATE TABLE Freguesia (
+	id INTEGER PRIMARY KEY,
+	nome TEXT NOT NULL,
+	idConcelho INTEGER NOT NULL REFERENCES Concelho(id)
+);
+
+CREATE TABLE CodigoPostal (
+	codigo INTEGER NOT NULL PRIMARY KEY,
+	idFreguesia INTEGER NOT NULL REFERENCES Freguesia(id)
+);
+
 CREATE TABLE Imovel (
 	id INTEGER PRIMARY KEY,
 	anoConstrucao INTEGER NOT NULL,
@@ -48,12 +75,6 @@ CREATE TABLE Imovel (
 	idTipoImovel INTEGER NOT NULL REFERENCES TipoImovel(id),
 	codigoPostal INTEGER NOT NULL REFERENCES CodigoPostal(codigo),
 	idCondominio INTEGER REFERENCES Condominio(id)
-);
-
-
-CREATE TABLE Pais (
-	id INTEGER PRIMARY KEY,
-	nome TEXT NOT NULL
 );
 
 CREATE TABLE Cliente (
@@ -77,28 +98,6 @@ CREATE TABLE Pagamento (
 	destinatarioId INTEGER NOT NULL REFERENCES Cliente(id),
 	remetenteId INTEGER NOT NULL REFERENCES Cliente(id),
 	imovelId INTEGER NOT NULL REFERENCES Imovel(id)
-);
-
-CREATE TABLE CodigoPostal (
-	codigo INTEGER NOT NULL PRIMARY KEY,
-	idFreguesia INTEGER NOT NULL REFERENCES Freguesia(id)
-);
-
-CREATE TABLE Freguesia (
-	id INTEGER PRIMARY KEY,
-	nome TEXT NOT NULL,
-	idConcelho INTEGER NOT NULL REFERENCES Concelho(id)
-);
-
-CREATE TABLE Concelho (
-	id INTEGER PRIMARY KEY,
-	nome TEXT NOT NULL,
-	idDistrito INTEGER NOT NULL REFERENCES Distrito(id)
-);
-
-CREATE TABLE Distrito (
-	id INTEGER NOT NULL PRIMARY KEY,
-	nome TEXT NOT NULL
 );
 
 CREATE TABLE Foto (
