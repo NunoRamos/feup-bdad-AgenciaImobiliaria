@@ -14,6 +14,6 @@
 
 + Melhor imóvel relação custo/área
 + Número de imóveis vendidos com foto
-- Distritos ordenados pelo número de imóveis vendidos
++ Distritos ordenados pelo número de imóveis vendidos
 + Clientes que já efetuam compras e arrendamentos
 + Qual segundo cliente que mais lucro deu à agência
