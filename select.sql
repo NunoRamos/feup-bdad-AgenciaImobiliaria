@@ -15,7 +15,7 @@ SELECT Imovel.id, Imovel.morada FROM Spa JOIN
 			CodigoPostal JOIN (
 				Freguesia JOIN (
 					Concelho JOIN Distrito
-					ON Concelho.idDistrito = Distrito.id)
+					ON Concelho.idDistrito = Distrito.id AND Distrito.nome = 'Porto')
 				ON Freguesia.idConcelho = Concelho.id)
 			ON CodigoPostal.idFreguesia = Freguesia.id)
 		ON Imovel.codigoPostal = CodigoPostal.codigo)
