@@ -1,4 +1,4 @@
-BDAD
+﻿BDAD
 + Top 10 Clientes com maiores montantes envolvidos
 + Valor médio da renda dos Imóveis agrupado por ano entre 2000 e 2010 
 + Clientes com rendas em atraso
@@ -12,8 +12,8 @@ BDAD
 
 --IDEIAS DA PROF
 
-- Melhor imóvel relação custo/área
-- Número de imóveis vendidos com foto
++ Melhor imóvel relação custo/área
++ Número de imóveis vendidos com foto
 - Distritos ordenados pelo número de imóveis vendidos
 + Clientes que já efetuam compras e arrendamentos
 + Qual segundo cliente que mais lucro deu à agência
