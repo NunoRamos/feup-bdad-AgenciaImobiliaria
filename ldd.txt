@@ -1,19 +1,19 @@
 BDAD
 + Top 10 Clientes com maiores montantes envolvidos
 + Valor médio da renda dos Imóveis agrupado por ano entre 2000 e 2010 
-- Clientes com rendas em atraso
-- Todos os imóveis com SPA privado no Distrito do Porto
-- Todos os condomínios com mais de 25 lugares de estacionamento e piscina comunitária
-- Todos os imóveis com renda abaixo dos 400€
-- Top 10 transferências ordenadas pela comissão
-- Condomínios com ginásio, sala de eventos e court de ténis
-- Imóveis sem condomínio no Concelho da Maia
-- Quinta com área superior a 2500m²
++ Clientes com rendas em atraso
++ Todos os imóveis com SPA privado no Distrito do Porto
++ Todos os condomínios com mais de 25 lugares de estacionamento e piscina comunitária
++ Todos os imóveis com renda abaixo dos 400€
++ Top 10 transferências ordenadas pela comissão
++ Condomínios com ginásio, sala de eventos e court de ténis
++ Imóveis sem condomínio no Concelho da Maia
++ Quinta com área superior a 2500m²
 
 --IDEIAS DA PROF
 
 - Melhor imóvel relação custo/área
 - Número de imóveis vendidos com foto
 - Distritos ordenados pelo número de imóveis vendidos
-- Clientes que já efetuam compras e arrendamentos
-- Qual segundo cliente que mais lucro deu à agência
++ Clientes que já efetuam compras e arrendamentos
++ Qual segundo cliente que mais lucro deu à agência
