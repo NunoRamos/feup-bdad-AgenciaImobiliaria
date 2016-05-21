@@ -83,7 +83,8 @@ FROM Distrito INNER JOIN
 WHERE ( SELECT Pagamento.vendaOuArrendamento
 		FROM Pagamento
 		WHERE Imovel.id = Pagamento.imovelId) = 0
-GROUP BY Distrito.nome;
+GROUP BY Distrito.nome
+ORDER BY COUNT(Imovel.id) DESC;
 		
 -- Clientes que já efetuam compras e arrendamentos
 SELECT DISTINCT Cliente.nome FROM Cliente JOIN Pagamento
