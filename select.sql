@@ -10,10 +10,6 @@ ORDER BY AVG(precoArrendamento) DESC;
 SELECT nome FROM Cliente JOIN Pagamento
 ON (Cliente.id = Pagamento.destinatarioId AND dataDevida < 'now' AND dataPagamento IS NULL); 
 
---SELECT * FROM Spa JOIN (Imovel JOIN CodigoPostal
---	ON Imovel.codigoPostal = CodigoPostal.codigo
---ON (Imovel.id = Spa.idImovel AND ) 
-
 SELECT Imovel.id, Imovel.morada FROM Spa JOIN 
 	(Imovel JOIN (
 			CodigoPostal JOIN (
