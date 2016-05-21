@@ -8,7 +8,18 @@ GROUP BY anoConstrucao
 ORDER BY AVG(precoArrendamento) DESC;
 
 SELECT nome FROM Cliente JOIN Pagamento
-ON (Cliente.id = Pagamento.destinatarioId AND strftime('%s', dataDevida) < strftime('%s', 'now') AND dataPagamento IS NULL); 
+ON (Cliente.id = Pagamento.destinatarioId AND dataDevida < 'now' AND dataPagamento IS NULL); 
+
+SELECT Imovel.id, Imovel.morada FROM Spa JOIN 
+	(Imovel JOIN (
+			CodigoPostal JOIN (
+				Freguesia JOIN (
+					Concelho JOIN Distrito
+					ON Concelho.idDistrito = Distrito.id AND Distrito.nome = 'Porto')
+				ON Freguesia.idConcelho = Concelho.id)
+			ON CodigoPostal.idFreguesia = Freguesia.id)
+		ON Imovel.codigoPostal = CodigoPostal.codigo)
+	ON Imovel.id = Spa.idImovel;
 
 SELECT Imovel.id, Imovel.descricao, TipoImovel.tipo
 FROM Imovel INNER JOIN TipoImovel ON 
@@ -25,7 +36,7 @@ ON Ginasio.idCondominio = CourtTenis.idCondominio;
 
 SELECT Pagamento.comissao, Pagamento.montante, Pagamento.comissao*Pagamento.montante
 FROM Pagamento
-ORDER BY Pagamento.comissao*Pagamento.montante DESC;
+ORDER BY Pagamento.comissao*Pagamento.montante DESC LIMIT 10;
 
 SELECT Imovel.id, Imovel.precoArrendamento
 FROM Imovel
@@ -47,6 +58,16 @@ WHERE (SELECT COUNT(*)
 		WHERE Foto.idImovel = Pagamento.imovelId) != 0
 		AND Pagamento.vendaOuArrendamento=0;
 
+SELECT DISTINCT Cliente.nome FROM Cliente JOIN Pagamento
+ON (Cliente.id = Pagamento.remetenteId OR Cliente.id = Pagamento.destinatarioId);
+
+SELECT id, nome, MAX(lucro) FROM (
+	SELECT Cliente.id AS id, Cliente.nome AS nome, SUM(Pagamento.comissao*Pagamento.montante) AS lucro FROM Cliente JOIN Pagamento
+	ON (Cliente.id = Pagamento.remetenteId)
+	GROUP BY Cliente.id
+	ORDER BY lucro DESC
+	LIMIT 1, 1);
+	
 SELECT Distrito.nome
 FROM Distrito INNER JOIN 
 		(Concelho INNER JOIN 
@@ -58,12 +79,4 @@ FROM Distrito INNER JOIN
 WHERE ( SELECT Pagamento.vendaOuArrendamento
 		FROM Pagamento
 		WHERE Imovel.id = Pagamento.imovelId) = 0;
-	
-
-
-
-
-
-			
-	
 

@@ -85,7 +85,7 @@ INSERT INTO CodigoPostal VALUES (8366908, 8);
 INSERT INTO CodigoPostal VALUES (9230053, 9);
 INSERT INTO CodigoPostal VALUES (28045, 10);
 INSERT INTO CodigoPostal VALUES (2450011, 11);
-INSERT INTO CodigoPostal VALUES (3360011, 12);
+INSERT INTO CodigoPostal VALUES (3360011, 1);
 INSERT INTO CodigoPostal VALUES (2745011, 13);
 INSERT INTO CodigoPostal VALUES (4250035, 1);
 
@@ -113,11 +113,11 @@ INSERT INTO Condominio VALUES (NULL, "Tagus Park");
 INSERT INTO Condominio VALUES (NULL, "Quinta do Patino");
 
 -- CLIENTES
-INSERT INTO Cliente VALUES (NULL, 14499929, "26/06/1996", "margaridaviterbo@hotmail.com", "Margarida Viterbo", 914722364, "Sra", 1);
-INSERT INTO Cliente VALUES (NULL, 17725512, "13/02/1969", "joaosousa@gmail.com", "João Sousa", 932857389, "Sr.", 1);
-INSERT INTO Cliente VALUES (NULL, 14690432, "25/03/1996", "bbelchior@gmail.com", "Bernardo Belchior", 932857434, "Sr.", 1);
-INSERT INTO Cliente VALUES (NULL, 13874629, "04/04/1996", "nunoramos@hotmail.com", "Nuno Ramos", 912847365, "Sr.", 1);
-INSERT INTO Cliente VALUES (NULL, 15839430, "18/05/1955", "mariafonseca@gmail.com", "Maria Fonseca", 914736854, "Sra.", 1);
+INSERT INTO Cliente VALUES (NULL, 14499929, "1996/06/26", "margaridaviterbo@hotmail.com", "Margarida Viterbo", 914722364, "Sra", 1);
+INSERT INTO Cliente VALUES (NULL, 17725512, "1969/02/13", "joaosousa@gmail.com", "João Sousa", 932857389, "Sr.", 1);
+INSERT INTO Cliente VALUES (NULL, 14690432, "1996/03/25", "bbelchior@gmail.com", "Bernardo Belchior", 932857434, "Sr.", 1);
+INSERT INTO Cliente VALUES (NULL, 13874629, "1996/04/04", "nunoramos@hotmail.com", "Nuno Ramos", 912847365, "Sr.", 1);
+INSERT INTO Cliente VALUES (NULL, 15839430, "1955/05/18", "mariafonseca@gmail.com", "Maria Fonseca", 914736854, "Sra.", 1);
 
 -- IMOVEL
 INSERT INTO Imovel VALUES (NULL, 2001, 150, "Habitação para famílias grandes com ótima localização", "B", "Rua das Flores", 1, 4, 150000, NULL, 1, 1, 10, 4250035, NULL);
@@ -134,7 +134,6 @@ INSERT INTO Pagamento VALUES (NULL, 0.11, "23/04/2016", NULL, 125000, 0, 4, 5, 3
 INSERT INTO Pagamento VALUES (NULL, 0.095, "15/08/2016", "20/08/2016", 150000, 0, 5, 1, 4);
 INSERT INTO Pagamento VALUES (NULL, 0.125, "05/11/2016", NULL, 300000, 1, 2, 3, 5);
 INSERT INTO Pagamento VALUES (NULL, 0.15, "05/11/2016", NULL, 200000, 0, 2, 4, 6);
-
 
 --FOTO
 INSERT INTO Foto VALUES (NULL, "Foto 1", 13, 21, "Quarto de casal", 1);
