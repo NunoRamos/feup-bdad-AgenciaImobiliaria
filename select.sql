@@ -71,17 +71,19 @@ WHERE (SELECT COUNT(*)
 		AND Pagamento.vendaOuArrendamento=0;
 
 --Distritos ordenados pelo número de imóveis vendidos
-SELECT Distrito.nome
+SELECT Distrito.nome, COUNT(Imovel.id)
 FROM Distrito INNER JOIN 
 		(Concelho INNER JOIN 
-		(Freguesia INNER JOIN 
-		(CodigoPostal INNER JOIN Imovel ON CodigoPostal.codigo = Imovel.codigoPostal)			
-		ON Freguesia.id = CodigoPostal.idFreguesia)
-		ON Concelho.id = Freguesia.idConcelho )
+			(Freguesia INNER JOIN 
+				(CodigoPostal INNER JOIN Imovel 
+					ON CodigoPostal.codigo = Imovel.codigoPostal)	
+				ON Freguesia.id = CodigoPostal.idFreguesia)
+			ON Concelho.id = Freguesia.idConcelho )
 		ON Distrito.id = Concelho.idDistrito
 WHERE ( SELECT Pagamento.vendaOuArrendamento
 		FROM Pagamento
-		WHERE Imovel.id = Pagamento.imovelId) = 0;
+		WHERE Imovel.id = Pagamento.imovelId) = 0
+GROUP BY Distrito.nome;
 		
 -- Clientes que já efetuam compras e arrendamentos
 SELECT DISTINCT Cliente.nome FROM Cliente JOIN Pagamento
